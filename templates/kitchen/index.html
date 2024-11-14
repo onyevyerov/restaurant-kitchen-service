@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Kitchen Service</h1>
+  <p>Welcome to the best Kitchen service!</p>
+  <h2>Dynamic content</h2>
+  <p>The Kitchen service has the following record counts:</p>
+  <ul>
+    <li><strong>Dishes:</strong> {{ num_of_dishes }}</li>
+    <li><strong>Cooks:</strong> {{ num_of_cooks }}</li>
+    <li><strong>Dish types:</strong> {{ num_of_dish_types }}</li>
+    <li><strong>Ingredients:</strong> {{ num_of_ingredients }}</li>
+  </ul>
+{% endblock %}
