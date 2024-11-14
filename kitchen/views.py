@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.models import Dish, Cook, DishType, Ingredient
@@ -22,6 +23,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class DishListView(generic.ListView):
     model = Dish
+
+
+class DishCreateView(generic.CreateView):
+    model = Dish
+    success_url = reverse_lazy("kitchen:dish-list")
 
 
 class CookListView(generic.ListView):
