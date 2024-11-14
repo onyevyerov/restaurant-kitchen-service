@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dishes List</h1>
+  {% if dish_list %}
+    {% for dish in dish_list %}
+      <ul>
+        <li>
+          {{ dish.name }}
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no dishes yet</p>
+  {% endif %}
+{% endblock %}
