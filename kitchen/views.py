@@ -17,4 +17,3 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_of_ingredients": num_of_ingredients,
     }
     return render(request, "kitchen/index.html", context=context)
-
