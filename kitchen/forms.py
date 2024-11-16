@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
-from kitchen.models import Dish, Cook
+from kitchen.models import Dish, Cook, DishType
 
 
 class DishForm(ModelForm):
@@ -23,3 +23,9 @@ class CookForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.fields["first_name"].required = True
         self.fields["last_name"].required = True
+
+
+class DishTypeForm(ModelForm):
+    class Meta:
+        model = DishType
+        fields = "__all__"
