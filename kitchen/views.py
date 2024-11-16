@@ -32,6 +32,10 @@ class DishCreateView(generic.CreateView):
     success_url = reverse_lazy("kitchen:dish-list")
 
 
+class DishDetailView(generic.DetailView):
+    model = Dish
+
+
 class CookListView(generic.ListView):
     model = Cook
 
