@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ cook.first_name }} {{ cook.last_name }}</h1>
+  <hr>
+  <br>
+
+  <h4> Experience:</h4>
+  {{ cook.years_of_experience }} year{{ cook.years_of_experience|pluralize }}
+  <br>
+  <br>
+  
+  <h4>Dishes:</h4>
+  {% for dish in cook.dishes.all %}
+  <li>{{ dish }}</li>
+    
+  {% endfor %}
+{% endblock %}
