@@ -11,6 +11,15 @@ class DishForm(ModelForm):
 
 
 class CookForm(UserCreationForm):
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = Cook
-        fields = '__all__'
+        fields = UserCreationForm.Meta.fields + (
+            "first_name",
+            "last_name",
+            "years_of_experience",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["first_name"].required = True
+        self.fields["last_name"].required = True
