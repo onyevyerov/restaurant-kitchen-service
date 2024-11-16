@@ -36,6 +36,10 @@ class CookListView(generic.ListView):
     model = Cook
 
 
+class CookCreateView(generic.CreateView):
+    model = Cook
+
+
 class DishTypeListView(generic.ListView):
     model = DishType
     context_object_name = "dish_type_list"
