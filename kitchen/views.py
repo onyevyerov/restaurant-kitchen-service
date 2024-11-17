@@ -36,6 +36,12 @@ class DishDetailView(generic.DetailView):
     model = Dish
 
 
+class DishDeleteView(generic.DeleteView):
+    model = Dish
+    success_url = reverse_lazy("kitchen:dish-list")
+    template_name = "dish_delete.html"
+
+
 class CookListView(generic.ListView):
     model = Cook
 
