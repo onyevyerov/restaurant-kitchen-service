@@ -91,3 +91,8 @@ class DishTypeDeleteView(generic.DeleteView):
     model = DishType
     success_url = reverse_lazy("kitchen:dish-type-list")
     template_name = "kitchen/dish_type_confirm_delete.html"
+
+
+class DishTypeUpdateView(generic.UpdateView):
+    model = DishType
+    success_url = reverse_lazy("kitchen:dish-type-list")
