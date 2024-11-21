@@ -13,6 +13,7 @@ from kitchen.views import (
     DishDeleteView,
     CookDeleteView,
     DishTypeDeleteView,
+    DishUpdateView,
 )
 
 urlpatterns = [
@@ -21,6 +22,7 @@ urlpatterns = [
     path("dishes/create/", DishCreateView.as_view(), name="dish-create"),
     path("dishes/<int:pk>/detail/", DishDetailView.as_view(), name="dish-detail"),
     path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
+    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
     path("cooks/", CookListView.as_view(), name="cook-list"),
     path("cooks/create/", CookCreateView.as_view(), name="cook-create"),
     path("cooks/<int:pk>/detail/", CookDetailView.as_view(), name="cook-detail"),
