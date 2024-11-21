@@ -11,8 +11,12 @@
   <br>
   
   <h4>Dishes:</h4>
+  {% if cook.dishes.all %}
   {% for dish in cook.dishes.all %}
   <li>{{ dish }}</li>
-    
   {% endfor %}
+  
+  {% else %}
+  There are no dishes yet
+  {% endif %}
 {% endblock %}
