@@ -25,6 +25,12 @@ class CookForm(UserCreationForm):
         self.fields["last_name"].required = True
 
 
+class CookUpdateForm(ModelForm):
+    class Meta:
+        model = Cook
+        fields = ["years_of_experience"]
+
+
 class DishTypeForm(ModelForm):
     class Meta:
         model = DishType
