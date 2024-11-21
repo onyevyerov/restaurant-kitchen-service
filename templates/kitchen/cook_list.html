@@ -10,11 +10,11 @@
   {% if cook_list %}
     {% for cook in cook_list %}
       <ul>
-        <a>
-          {{ cook.id }}. 
+        <li>
+          {{ cook.id }}.
           <a href="{% url 'kitchen:cook-detail' cook.id %}">
             {{ cook.username }}
-            ({{ cook.first_name }} 
+            ({{ cook.first_name }}
             {{ cook.last_name }})
           </a>
         </li>
