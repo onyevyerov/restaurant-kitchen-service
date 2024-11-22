@@ -25,6 +25,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
+    paginate_by = 5
 
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
@@ -51,6 +52,7 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
+    paginate_by = 5
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
