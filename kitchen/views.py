@@ -103,4 +103,4 @@ class DishTypeUpdateView(generic.UpdateView):
 class DishTypeDetailView(generic.DetailView):
     model = DishType
     context_object_name = "dish_type"
-
+    template_name = "kitchen/dish_type_detail.html"
