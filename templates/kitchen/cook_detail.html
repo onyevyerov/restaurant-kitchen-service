@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ cook.first_name }} {{ cook.last_name }}</h1>
+  <h1>
+    {{ cook.first_name }} {{ cook.last_name }}
+    <a href="{% url 'kitchen:cook-delete' cook.id %}" class="btn btn-danger">Delete</a>
+  
+  </h1>
   <hr>
   <br>
 
