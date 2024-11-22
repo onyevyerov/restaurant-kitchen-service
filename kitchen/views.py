@@ -127,6 +127,15 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         )
         return context
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        form = DishTypeNameSearchForm(self.request.GET)
+        if form.is_valid():
+            queryset = queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+            return queryset
+
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
