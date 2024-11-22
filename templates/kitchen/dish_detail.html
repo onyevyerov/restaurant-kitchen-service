@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ dish.name }}</h1>
+  <h1>
+    {{ dish.name }}
+    <a href="{% url 'kitchen:dish-delete' dish.id %}" class="btn btn-danger">Delete</a>
+  </h1>
   <br>
 
   <h4>Description: </h4>
