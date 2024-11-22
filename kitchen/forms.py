@@ -1,10 +1,9 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm
-
 from kitchen.models import Dish, Cook, DishType
 
 
-class DishForm(ModelForm):
+class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
         fields = '__all__'
@@ -25,13 +24,22 @@ class CookForm(UserCreationForm):
         self.fields["last_name"].required = True
 
 
-class CookUpdateForm(ModelForm):
+class CookUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
         fields = ["years_of_experience"]
 
 
-class DishTypeForm(ModelForm):
+class DishTypeForm(forms.ModelForm):
     class Meta:
         model = DishType
         fields = "__all__"
+
+
+class DishNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=55,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by dish name"}),
+    )
