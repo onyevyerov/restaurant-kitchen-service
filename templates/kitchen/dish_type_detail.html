@@ -4,13 +4,17 @@
   <h1>{{ dish_type.name }}</h1>
   <hr>
   <br>
-  <ul>
-    {% for dish in dishes %}
-      <li>
-        <a href="{% url 'kitchen:dish-detail' dish.id %}">
-          {{ dish.name }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+    {% if dishes.all %}
+      <ul>
+      {% for dish in dishes %}
+        <li>
+          <a href="{% url 'kitchen:dish-detail' dish.id %}">
+            {{ dish.name }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no dishes of this type yet.</p>
+    {% endif %}
 {% endblock %}
