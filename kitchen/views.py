@@ -98,3 +98,9 @@ class DishTypeUpdateView(generic.UpdateView):
     success_url = reverse_lazy("kitchen:dish-type-list")
     form_class = DishTypeForm
     template_name = "kitchen/dish_type_form.html"
+
+
+class DishTypeDetailView(generic.DetailView):
+    model = DishType
+    context_object_name = "dish_type"
+
