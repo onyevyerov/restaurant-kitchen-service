@@ -80,6 +80,15 @@ class CookListView(LoginRequiredMixin, generic.ListView):
         )
         return context
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        form = CookUsernameSearchForm(self.request.GET)
+        if form.is_valid():
+            queryset = queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
+            return queryset
+
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
