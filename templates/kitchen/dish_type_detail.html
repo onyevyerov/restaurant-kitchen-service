@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ dish_type.name }}</h1>
+  <h1>
+    {{ dish_type.name }}
+    <a href="{% url 'kitchen:dish-type-delete' dish_type.id %}" class="btn btn-danger">Delete</a>
+  
+  </h1>
   <hr>
   <br>
     {% if dishes.all %}
