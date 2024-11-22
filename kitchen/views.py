@@ -104,3 +104,8 @@ class DishTypeDetailView(generic.DetailView):
     model = DishType
     context_object_name = "dish_type"
     template_name = "kitchen/dish_type_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context["dishes"] = Dish.objects.filter(dish_type=self.object)
+        return context
