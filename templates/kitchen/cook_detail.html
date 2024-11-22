@@ -4,8 +4,8 @@
   <h1>
     {{ cook.first_name }} {{ cook.last_name }}
     <a href="{% url 'kitchen:cook-delete' cook.id %}" class="btn btn-danger">Delete</a>
-  
-  </h1>
+    <a href="{% url 'kitchen:cook-update' cook.id %}" class="btn btn-secondary">Update</a>
+    </h1>
   <hr>
   <br>
 

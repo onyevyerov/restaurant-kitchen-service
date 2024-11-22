@@ -4,6 +4,7 @@
   <h1>
     {{ dish.name }}
     <a href="{% url 'kitchen:dish-delete' dish.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'kitchen:dish-update' dish.id %}" class="btn btn-secondary">Update</a>
   </h1>
   <br>
 
