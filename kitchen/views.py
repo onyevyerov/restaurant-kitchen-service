@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.forms import DishForm, CookForm, DishTypeForm, CookUpdateForm, DishNameSearchForm, CookUsernameSearchForm, \
-    DishTypeNameSearchForm
+    DishTypeNameSearchForm, IngredientForm
 from kitchen.models import Dish, Cook, DishType, Ingredient
 
 
@@ -169,3 +169,9 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data()
         context["dishes"] = Dish.objects.filter(dish_type=self.object)
         return context
+
+
+class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Ingredient
+    form_class = IngredientForm
+    success_url = reverse_lazy("kitchen:ingredient-create")

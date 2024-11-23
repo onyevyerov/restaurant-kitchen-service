@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from kitchen.models import Dish, Cook, DishType
+from kitchen.models import Dish, Cook, DishType, Ingredient
 
 
 class DishForm(forms.ModelForm):
@@ -61,3 +61,9 @@ class DishTypeNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={"placeholder": "Search by dish type name"}),
     )
+
+
+class IngredientForm(forms.ModelForm):
+    class Meta:
+        model = Ingredient
+        fields = "__all__"
