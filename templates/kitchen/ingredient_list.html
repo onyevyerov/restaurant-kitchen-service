@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    Ingredients List
+    <a href="{% url 'kitchen:ingredient-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+{#  Not realized yet#}
+{#  <form method="get" action="" class="form-inline">#}
+{#    {{ search_form|crispy }}#}
+{#    <input type="submit" value="🔍">#}
+{#  </form>#}
+  {% if ingredient_list %}
+    {% for ingredient in ingredient_list %}
+      <ul>
+        <li>
+            {{ ingredient.name }}
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no ingredients yet</p>
+  {% endif %}
+{% endblock %}
