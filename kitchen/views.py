@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.forms import DishForm, CookForm, DishTypeForm, CookUpdateForm, DishNameSearchForm, CookUsernameSearchForm, \
-    DishTypeNameSearchForm, IngredientForm
+    DishTypeNameSearchForm, IngredientForm, IngredientNameSearchForm
 from kitchen.models import Dish, Cook, DishType, Ingredient
 
 
@@ -181,3 +181,20 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     paginate_by = 5
     template_name = "kitchen/ingredient_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        name = self.request.GET.get("name", "")
+        context["search_form"] = IngredientNameSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        form = IngredientNameSearchForm(self.request.GET)
+        if form.is_valid():
+            queryset = queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+            return queryset

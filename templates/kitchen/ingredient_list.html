@@ -8,11 +8,12 @@
       Create
     </a>
   </h1>
-{#  Not realized yet#}
-{#  <form method="get" action="" class="form-inline">#}
-{#    {{ search_form|crispy }}#}
-{#    <input type="submit" value="🔍">#}
-{#  </form>#}
+
+  <form method="get" action="" class="form-inline">
+    {{ search_form|crispy }}
+    <input type="submit" value="🔍">
+  </form>
+  
   {% if ingredient_list %}
     {% for ingredient in ingredient_list %}
       <ul>

@@ -67,3 +67,12 @@ class IngredientForm(forms.ModelForm):
     class Meta:
         model = Ingredient
         fields = "__all__"
+
+
+class IngredientNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=55,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by ingredient name"}),
+    )
