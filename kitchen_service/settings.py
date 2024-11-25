@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
     "kitchen",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "kitchen_service.urls"
@@ -76,6 +78,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 WSGI_APPLICATION = "kitchen_service.wsgi.application"
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

@@ -31,6 +31,7 @@ def index(request: HttpRequest) -> HttpResponse:
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 5
+    queryset = Dish.objects.select_related("dish_type")
 
     def get_context_data(self, **kwargs):
         context = super(DishListView, self).get_context_data(**kwargs)
@@ -76,6 +77,7 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 5
+    queryset = Cook.objects.prefetch_related("dishes")
 
     def get_context_data(self, **kwargs):
         context = super(CookListView, self).get_context_data(**kwargs)
