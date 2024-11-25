@@ -14,12 +14,15 @@ def index(request: HttpRequest) -> HttpResponse:
     num_of_cooks = Cook.objects.count()
     num_of_dish_types = DishType.objects.count()
     num_of_ingredients = Ingredient.objects.count()
+    num_of_visits = request.session.get("num_of_visits", 0)
+    request.session["num_of_visits"] = num_of_visits + 1
 
     context = {
         "num_of_dishes": num_of_dishes,
         "num_of_cooks": num_of_cooks,
         "num_of_dish_types": num_of_dish_types,
         "num_of_ingredients": num_of_ingredients,
+        "num_of_visits": num_of_visits + 1,
     }
     return render(request, "kitchen/index.html", context=context)
 
