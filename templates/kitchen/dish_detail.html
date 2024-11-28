@@ -10,6 +10,9 @@
     <div class="card-body text-muted">
       <p><strong>Price:</strong> {{ object.price }} </p>
       <p><strong>Dish type:</strong> {{ object.dish_type }}</p>
+      {% if dish.dish_type.country %}
+        <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
+      {% endif %}
       <p><strong>Description:</strong> {{ object.description }}</p>
       <p><strong>Ingredients:</strong> {{ object.ingredients.all|join:", " }}</p>
       <a href="{% url 'kitchen:dish-update' object.pk %}" class="btn btn-outline-secondary">Edit</a>
