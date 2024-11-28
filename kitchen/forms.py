@@ -7,6 +7,10 @@ class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
         fields = '__all__'
+        widgets = {
+            "ingredients": forms.CheckboxSelectMultiple(),
+            "cooks": forms.CheckboxSelectMultiple(),
+        }
 
 
 class CookForm(UserCreationForm):
