@@ -1,31 +1,69 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% load static %}
+
 
 {% block content %}
-  <h1>
-    Cook List
-    <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
-  <form method="get" action="" class="form-inline">
-    {{ search_form|crispy }}
-    <input type="submit" value="🔍">
+<div class="container mt-5">
+  <h2 class="text-center mt-7 text-black">Cooks</h2>
+
+  <form method="get" action="" class="form-inline mb-5">
+    <div class="input-group" style="max-width: 600px; margin: auto;">
+      {{ search_form.name.label_tag }}
+      <input type="search" class="form-control text-black"
+             placeholder="Search by username" aria-label="Search"
+             aria-describedby="search-addon" name="name"
+             value="{{ request.GET.name|default:'' }}"
+             style="padding-left: 35px;">
+
+      <button class="input-group-text border-0" id="search-addon" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
   </form>
-  {% if cook_list %}
-    {% for cook in cook_list %}
-      <ul>
-        <li>
-          {{ cook.id }}.
-          <a href="{% url 'kitchen:cook-detail' cook.id %}">
-            {{ cook.username }}
-            ({{ cook.first_name }}
-            {{ cook.last_name }})
-          </a>
-        </li>
-      </ul>
-    {% endfor %}
+
+  <a href="{% url 'kitchen:cook-create' %}" class="btn btn-info mb-3">
+    Register New Cook
+  </a>
+
+  {% if object_list %}
+  <div class="card shadow-2-strong" style="background-color: #f5f7fa; border-radius: 0.5rem;">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-borderless mb-0 text-center align-middle">
+          <thead class="bg-light">
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Years of Experience</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cook in object_list %}
+            <tr>
+              <td>
+                {{ cook.pk }}
+              </td>
+              <td>{{ cook.first_name }}</td>
+              <td>{{ cook.last_name }}</td>
+              <td>{{ cook.username }}</td>
+              <td>{{ cook.years_of_experience }}</td>
+              <td>
+                <a href="{% url 'kitchen:cook-update' cook.pk %}" class="btn btn-warning btn-sm">Update</a>
+                <a href="{% url 'kitchen:cook-detail' cook.pk %}" class="btn btn-primary btn-sm">View</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
   {% else %}
-    <p>There are no Cooks yet</p>
+  <p>Cook not found.</p>
   {% endif %}
+</div>
 {% endblock %}
