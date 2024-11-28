@@ -5,6 +5,7 @@ from django.urls import reverse
 
 class DishType(models.Model):
     name = models.CharField(max_length=69, unique=True)
+    country = models.CharField(max_length=69, unique=False, blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
