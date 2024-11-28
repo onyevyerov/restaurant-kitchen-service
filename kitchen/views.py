@@ -65,7 +65,9 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
     form_class = DishForm
-    success_url = reverse_lazy("kitchen:dish-list")
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:dish-detail", kwargs={"pk": self.object.pk})
 
 
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -109,8 +111,10 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    success_url = reverse_lazy("kitchen:cook-list")
     form_class = CookUpdateForm
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:cook-detail", kwargs={"pk": self.object.pk})
 
 
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
