@@ -15,8 +15,8 @@
       {% endif %}
       <p><strong>Description:</strong> {{ object.description }}</p>
       <p><strong>Ingredients:</strong> {{ object.ingredients.all|join:", " }}</p>
-      <a href="{% url 'kitchen:dish-update' object.pk %}" class="btn btn-outline-secondary">Edit</a>
-      <a href="{% url 'kitchen:dish-delete' object.pk %}" class="btn btn-outline-danger">Delete dish</a>
+      <a href="{% url 'kitchen:dish-update' object.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'kitchen:dish-delete' object.pk %}" class="btn btn-danger">Delete dish</a>
 
       <h3 class="mt-4">Cooks</h3>
       <ul class="list-group mb-4">
@@ -35,14 +35,14 @@
         {% if user in object.cooks.all %}
           <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
             {% csrf_token %}
-              <button type="submit" class="btn btn-outline-danger">
+              <button type="submit" class="btn btn-danger">
                 Remove me from {{ object.name }} cook list
               </button>
           </form>
         {% else %}
           <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
             {% csrf_token %}
-              <button type="submit" class="btn btn-outline-success">
+              <button type="submit" class="btn btn-success">
                 Add me to {{ object.name }} cook list
               </button>
           </form>
