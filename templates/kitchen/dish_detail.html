@@ -21,7 +21,11 @@
       <h3 class="mt-4">Cooks</h3>
       <ul class="list-group mb-4">
         {% for cook in object.cooks.all %}
-        <li class="list-group-item">{{ cook.first_name }} {{ cook.last_name }}</li>
+        <li class="list-group-item">
+          <a href="{% url 'kitchen:cook-detail' cook.pk %}">
+           {{ cook.first_name }} {{ cook.last_name }} 
+          </a>
+        </li>
         {% empty %}
         <li class="list-group-item">No cooks assigned.</li>
         {% endfor %}
