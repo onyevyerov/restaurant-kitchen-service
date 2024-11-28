@@ -1,26 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>
-    {{ cook.first_name }} {{ cook.last_name }}
-    <a href="{% url 'kitchen:cook-delete' cook.id %}" class="btn btn-danger">Delete</a>
-    <a href="{% url 'kitchen:cook-update' cook.id %}" class="btn btn-secondary">Update</a>
-    </h1>
-  <hr>
-  <br>
+<div class="container mt-5">
+  <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
+    <div class="card-header bg-light text-white">
+      <h2 class="text-center mb-0 text-dark">
+        {{ object.first_name }} {{ object.last_name }}
+      </h2>
+    </div>
+    <div class="card-body text-muted">
+      <p><strong>Username:</strong> {{ object.username }} </p>
+      <p><strong>Email:</strong> {{ object.email }}</p>
+      <p><strong>Experience:</strong> {{ object.years_of_experience }} year{{ object.years_of_experience|pluralize }}</p>
+      {% if dish.dish_type.country %}
+        <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
+      {% endif %}
+      <a href="{% url 'kitchen:cook-update' object.pk %}" class="btn btn-outline-success">Edit</a>
 
-  <h4> Experience:</h4>
-  {{ cook.years_of_experience }} year{{ cook.years_of_experience|pluralize }}
-  <br>
-  <br>
-  
-  <h4>Dishes:</h4>
-  {% if cook.dishes.all %}
-  {% for dish in cook.dishes.all %}
-  <li>{{ dish }}</li>
-  {% endfor %}
-  
-  {% else %}
-  There are no dishes yet
-  {% endif %}
+      <h3 class="mt-4">Prepared dishes</h3>
+      <ul class="list-group mb-4">
+        {% for dish in object.dishes.all %}
+        <li class="list-group-item">
+          <a href="{% url 'kitchen:dish-detail' dish.pk %}">
+           {{ dish.name }}
+          </a>
+        </li>
+        {% empty %}
+        <li class="list-group-item">There are no dishes yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
 {% endblock %}
