@@ -16,7 +16,7 @@
       {% if dish.dish_type.country %}
         <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
       {% endif %}
-      <a href="{% url 'kitchen:cook-update' object.pk %}" class="btn btn-outline-success">Edit</a>
+      <a href="{% url 'kitchen:cook-update' object.pk %}" class="btn btn-warning">Edit</a>
 
       <h3 class="mt-4">Prepared dishes</h3>
       <ul class="list-group mb-4">
