@@ -1,24 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>
-    {{ dish_type.name }}
-    <a href="{% url 'kitchen:dish-type-delete' dish_type.id %}" class="btn btn-danger">Delete</a>
-    <a href="{% url 'kitchen:dish-type-update' dish_type.id %}" class="btn btn-secondary">Update</a>
-    </h1>
-  <hr>
-  <br>
-    {% if dishes.all %}
-      <ul>
-      {% for dish in dishes %}
-        <li>
-          <a href="{% url 'kitchen:dish-detail' dish.id %}">
-            {{ dish.name }}
+<div class="container mt-5">
+  <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
+    <div class="card-header bg-light text-white">
+      <h2 class="text-center mb-0 text-dark">
+        {{ object.name }}
+      </h2>
+    </div>
+    <div class="card-body text-muted">
+      <p><strong>County:</strong> {{ object.country }} </p>
+      <p><strong>Amount of dishes:</strong> {{ object.dish_set.count }}</p>
+      {% if dish.dish_type.country %}
+        <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
+      {% endif %}
+      <a href="{% url 'kitchen:dish-type-update' object.pk %}" class="btn btn-outline-secondary">Edit</a>
+      <a href="{% url 'kitchen:dish-type-delete' object.pk %}" class="btn btn-outline-danger">Delete</a>
+
+      <h3 class="mt-4">Dishes</h3>
+      <ul class="list-group mb-4">
+        {% for dish in object.dish_set.all %}
+        <li class="list-group-item">
+          <a href="{% url 'kitchen:dish-detail' dish.pk %}">
+           {{ dish.name }}
           </a>
         </li>
-      {% endfor %}
+        {% empty %}
+        <li class="list-group-item">No dishes yet.</li>
+        {% endfor %}
       </ul>
-    {% else %}
-      <p>There are no dishes of this type yet.</p>
-    {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}
