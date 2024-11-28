@@ -19,6 +19,7 @@ class CookForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
+            "email",
             "years_of_experience",
         )
 
