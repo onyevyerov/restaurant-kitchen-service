@@ -1,6 +1,15 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
+
 from kitchen.models import Dish, Cook, DishType, Ingredient
+
+
+def validate_name(value):
+    if not value.isalpha():
+        raise ValidationError("This field should only contain letters")
+    if len(value) < 2:
+        raise ValidationError("This field should has 2 or more symbols ")
 
 
 class DishForm(forms.ModelForm):
@@ -22,6 +31,16 @@ class CookForm(UserCreationForm):
             "email",
             "years_of_experience",
         )
+    first_name = forms.CharField(
+        max_length=50,
+        validators=[validate_name],
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
+    last_name = forms.CharField(
+        max_length=50,
+        validators=[validate_name],
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
