@@ -160,10 +160,12 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
-    success_url = reverse_lazy("kitchen:dish-type-list")
     form_class = DishTypeForm
     template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:dish-type-detail", kwargs={"pk": self.object.pk})
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
