@@ -35,8 +35,8 @@ class Dish(models.Model):
         unique=True,
         validators=[
             RegexValidator(
-                regex=r'^[a-zA-Z\s]+$',
-                message="The name can only contain letters and spaces."
+                regex=r'^[a-zA-Z\s\-]+$',
+                message="The name can only contain letters, spaces and dashes."
             )
         ]
     )
@@ -53,5 +53,13 @@ class Dish(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.capitalize()
+        super().save(*args, **kwargs)
         return self.name
