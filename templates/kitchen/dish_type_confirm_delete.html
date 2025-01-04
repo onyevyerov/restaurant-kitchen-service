@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete {{ dish_type.name }}?</h1>
-  <p>Are you sure you want to delete the dish type: {{ dish_type.name }}?</p>
-  <p><i>All dishes of this type will be also deleted!</i></p>
+  <div class="container mt-8">
+    <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
+      <div class="card-header bg-light text-center">
+        <h3>Delete {{ dish_type.name }} ?</h3>
+        <p>Are you sure you want to delete the dish type: <strong>{{ dish_type.name }}</strong> ?</p>
+        <p class="text-danger"><i>All dishes of this type will be also deleted!</i></p>
 
-  <form action="" method="post">
-    {% csrf_token %}
+        <form action="" method="post">
+          {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+          <div class="mt-4 text-center">
+            <input type="submit" value="Yes" class="btn btn-danger">
+            <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+          </div>
 
-  </form>
+
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

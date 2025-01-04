@@ -1,13 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete {{ dish.name }}?</h1>
+  <div class="container mt-8">
+    <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
+      <div class="card-header bg-light text-white">
+        <h3 class="text-center mb-0 text-dark">
+          You really want to delete <i class="text-decoration-underline">{{ dish.name }}</i>?
+        </h3>
 
-  <form action="" method="post">
-    {% csrf_token %}
+        <form action="" method="post">
+          {% csrf_token %}
+    
+          <div class="mt-4 text-center">
+            <input type="submit" value="Yes" class="btn btn-danger">
+            <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+          </div>
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
-
-  </form>
+    
+        </form>
+      </div>
+    </div>  
+  </div>
 {% endblock %}
