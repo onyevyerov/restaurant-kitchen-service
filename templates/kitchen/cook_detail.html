@@ -17,6 +17,8 @@
         <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
       {% endif %}
       <a href="{% url 'kitchen:cook-update' object.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'kitchen:cook-delete' object.pk %}" class="btn btn-danger">Delete</a>
+    
 
       <h3 class="mt-4">Prepared dishes</h3>
       <ul class="list-group mb-4">
