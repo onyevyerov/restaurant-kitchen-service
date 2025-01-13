@@ -5,15 +5,17 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import (DishForm,
-                           CookForm,
-                           DishTypeForm,
-                           CookUpdateForm,
-                           DishNameSearchForm,
-                           CookUsernameSearchForm,
-                           DishTypeNameSearchForm,
-                           IngredientForm,
-                           IngredientNameSearchForm)
+from kitchen.forms import (
+    DishForm,
+    CookForm,
+    DishTypeForm,
+    CookUpdateForm,
+    DishNameSearchForm,
+    CookUsernameSearchForm,
+    DishTypeNameSearchForm,
+    IngredientForm,
+    IngredientNameSearchForm
+)
 from kitchen.models import Dish, Cook, DishType, Ingredient
 
 
@@ -193,12 +195,12 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
     form_class = IngredientForm
-    success_url = reverse_lazy("kitchen:ingredient-create")
+    success_url = reverse_lazy("kitchen:ingredient-list")
 
 
 class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
-    paginate_by = 5
+    paginate_by = 25
     template_name = "kitchen/ingredient_list.html"
 
     def get_context_data(self, **kwargs):
@@ -217,6 +219,10 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
                 name__icontains=form.cleaned_data["name"]
             )
             return queryset
+
+
+class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Ingredient
 
 
 @login_required

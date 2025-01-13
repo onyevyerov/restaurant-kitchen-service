@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
+    <div class="card-header bg-light text-white">
+      <h2 class="text-center mb-0 text-dark">{{ object.name }}</h2>
+    </div>
+    <div class="card-body text-muted">
+      <p><strong>Price:</strong> {{ object.price }} </p>
+      <p><strong>Dish type:</strong> {{ object.dish_type }}</p>
+      {% if dish.dish_type.country %}
+        <p><strong>Country:</strong> {{ object.dish_type.country }}</p>
+      {% endif %}
+      <p><strong>Description:</strong> {{ object.description }}</p>
+      <p><strong>Ingredients:</strong> {{ object.ingredients.all|join:", " }}</p>
+      <a href="{% url 'kitchen:dish-update' object.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'kitchen:dish-delete' object.pk %}" class="btn btn-danger">Delete dish</a>
+
+      <h3 class="mt-4">Cooks</h3>
+      <ul class="list-group mb-4">
+        {% for cook in object.cooks.all %}
+        <li class="list-group-item">
+          <a href="{% url 'kitchen:cook-detail' cook.pk %}">
+           {{ cook.first_name }} {{ cook.last_name }} 
+          </a>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No cooks assigned.</li>
+        {% endfor %}
+      </ul>
+
+      <span style="float: right;">
+        {% if user in object.cooks.all %}
+          <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
+            {% csrf_token %}
+              <button type="submit" class="btn btn-danger">
+                Remove me from {{ object.name }} cook list
+              </button>
+          </form>
+        {% else %}
+          <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
+            {% csrf_token %}
+              <button type="submit" class="btn btn-success">
+                Add me to {{ object.name }} cook list
+              </button>
+          </form>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+</div>
+{% endblock %}

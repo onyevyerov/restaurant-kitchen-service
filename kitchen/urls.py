@@ -20,6 +20,7 @@ from kitchen.views import (
     IngredientCreateView,
     IngredientListView,
     toggle_assign_to_dish,
+    IngredientDetailView,
 )
 
 urlpatterns = [
@@ -42,7 +43,7 @@ urlpatterns = [
     path("dish-types/<int:pk>/update/", DishTypeUpdateView.as_view(), name="dish-type-update"),
     path("ingredients/create/", IngredientCreateView.as_view(), name="ingredient-create"),
     path("ingredients/", IngredientListView.as_view(), name="ingredient-list"),
-
+    path("ingredients/<int:pk>/detail/", IngredientDetailView.as_view(), name="ingredient-detail"),
 ]
 
 app_name = "kitchen"
