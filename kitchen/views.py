@@ -225,6 +225,15 @@ class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Ingredient
 
 
+class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = "kitchen/ingredient_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:ingredient-detail", kwargs={"pk": self.object.pk})
+
+
 @login_required
 def toggle_assign_to_dish(request: HttpRequest, pk) -> HttpResponse:
     cook = Cook.objects.get(id=request.user.id)
