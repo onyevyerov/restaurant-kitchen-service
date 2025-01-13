@@ -6,7 +6,7 @@
   <div class="container mt-7">
     <div class="d-flex justify-content-center align-items-center mb-2">
       <h1>Ingredients List</h1>
-      <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-info ms-3">
+      <a href="{% url 'kitchen:ingredient-create' %}" class="btn btn-info ms-3">
         Add Ingredient
       </a>
     </div>
@@ -31,7 +31,7 @@
 
           {% for ingredient in object_list %}
             <i class="list-group-item list-group-item-action">
-              {{ ingredient.name }}
+              <a href="{% url 'kitchen:ingredient-detail' ingredient.pk %}">{{ ingredient.name }}</a>
             </i>
           {% empty %}
             <div class="alert alert-warning text-center" role="alert">
