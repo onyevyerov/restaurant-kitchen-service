@@ -3,23 +3,30 @@
 
 {% block content %}
 <body>
-    <div class="container mt-7">
-        <h1 class="text-center mb-4">Ingredients List</h1>
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <div class="list-group">
-            {% for ingredient in object_list %}
-              <i class="list-group-item list-group-item-action">
-                {{ ingredient.name }}
-              </i>
-            {% empty %}
-              <div class="alert alert-warning text-center" role="alert">
-                No ingredients found.
-              </div>
-            {% endfor %}
-          </div>
+  <div class="container mt-7">
+    <div class="d-flex justify-content-center align-items-center mb-2">
+      <h1>Ingredients List</h1>
+      <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-info ms-3">
+        Add Ingredient
+      </a>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="list-group">
+
+          {% for ingredient in object_list %}
+            <i class="list-group-item list-group-item-action">
+              {{ ingredient.name }}
+            </i>
+          {% empty %}
+            <div class="alert alert-warning text-center" role="alert">
+              No ingredients found.
+            </div>
+          {% endfor %}
+
         </div>
       </div>
     </div>
+  </div>
 </body>
 {% endblock %}
