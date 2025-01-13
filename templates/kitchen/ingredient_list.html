@@ -10,6 +10,21 @@
         Add Ingredient
       </a>
     </div>
+
+    <form method="get" action="" class="form-inline mb-3">
+    <div class="input-group" style="max-width: 600px; margin: auto;">
+      {{ search_form.name.label_tag }}
+      <input type="search" class="form-control text-black"
+             placeholder="Search by name" aria-label="Search"
+             aria-describedby="search-addon" name="name"
+             value="{{ request.GET.name|default:'' }}"
+             style="padding-left: 30px;">
+      <button class="input-group-text border-0" id="search-addon" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    </form>
+
     <div class="row justify-content-center">
       <div class="col-6">
         <div class="list-group">
