@@ -31,6 +31,7 @@ class CookForm(UserCreationForm):
             "email",
             "years_of_experience",
         )
+
     first_name = forms.CharField(
         max_length=50,
         validators=[validate_name],

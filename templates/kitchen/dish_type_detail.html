@@ -3,12 +3,14 @@
 
 {% block content %}
 <div class="container mt-5">
+
   <div class="card shadow-lg mx-auto" style="border-radius: 15px; max-width: 600px;">
     <div class="card-header bg-light text-white">
       <h2 class="text-center mb-0 text-dark">
         {{ object.name }}
       </h2>
     </div>
+  
     <div class="card-body text-muted">
       <p><strong>County:</strong> {{ object.country }} </p>
       <p><strong>Amount of dishes:</strong> {{ object.dish_set.count }}</p>
@@ -31,6 +33,7 @@
         {% endfor %}
       </ul>
     </div>
+  
   </div>
 </div>
 {% endblock %}

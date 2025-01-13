@@ -8,8 +8,8 @@
       <h2 class="text-center mb-0 text-dark">{{ object.name }}</h2>
     </div>
     <div class="card-body text-muted">
-      <a href="{% url 'kitchen:dish-update' object.pk %}" class="btn btn-warning">Edit</a>
-      <a href="{% url 'kitchen:dish-delete' object.pk %}" class="btn btn-danger">Delete ingredient</a>
+      <a href="{% url 'kitchen:ingredient-update' object.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'kitchen:ingredient-delete' object.pk %}" class="btn btn-danger">Delete</a>
 
       <h3 class="mt-4">Dishes:</h3>
       <ul class="list-group mb-4">
@@ -20,7 +20,7 @@
           </a>
         </li>
         {% empty %}
-        <li class="list-group-item">No dishes yet</li>
+        <li class="list-group-item">No dishes with this ingredient yet</li>
         {% endfor %}
       </ul>
     </div>

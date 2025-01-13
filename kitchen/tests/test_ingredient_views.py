@@ -44,6 +44,7 @@ class PrivateIngredientViewTest(TestCase):
     def test_get_context_data(self):
         response = self.client.get(INGREDIENT_LIST_URL, {"name": "Onion"})
         search_form = response.context["search_form"]
+
         self.assertEqual(
             search_form.initial["name"],
             "Onion"
@@ -54,6 +55,7 @@ class PrivateIngredientViewTest(TestCase):
         ingredients = Ingredient.objects.filter(
             name__icontains="Onion"
         )
+
         self.assertQuerysetEqual(
             list(response.context["ingredient_list"]),
             list(ingredients)

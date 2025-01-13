@@ -21,16 +21,11 @@
 
 <body>
    {% block body %}{% endblock body %}
-
-  {% include "includes/navigation.html" %}
-    
-  {% block content %}{% endblock content %}
-  {% block footer %}{% endblock footer %}
-    
-  {% include "includes/scripts.html" %}
-    
-  {% block javascripts %}{% endblock javascripts %}
-  
-  {% include "includes/pagination.html" %}
+   {% include "includes/navigation.html" %}
+   {% include "includes/scripts.html" %}
+   {% block content %}{% endblock content %}
+   {% block footer %}{% endblock footer %}
+   {% block javascripts %}{% endblock javascripts %}
+   {% include "includes/pagination.html" %}
 </body>
 </html>

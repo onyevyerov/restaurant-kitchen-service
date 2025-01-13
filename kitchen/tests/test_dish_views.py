@@ -20,6 +20,7 @@ class PrivateDishTest(TestCase):
             password='<PASSWORD>',
         )
         self.client.force_login(self.user)
+
         self.dish_type1 = DishType.objects.create(
             name="pizza",
             country="Italy"
@@ -44,21 +45,23 @@ class PrivateDishTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
         dishes = Dish.objects.all()
+
         self.assertEqual(
             list(response.context["dish_list"]),
             list(dishes)
         )
-
         self.assertTemplateUsed(response, 'kitchen/dish_list.html')
 
     def test_get_context_data(self):
         response = self.client.get(DISH_LIST_URL, {"name": "rebai"})
         search_form = response.context["search_form"]
+
         self.assertEqual(search_form.initial["name"], "rebai")
 
     def test_get_queryset_with_search(self):
         response = self.client.get(DISH_LIST_URL, {"name": "rebai"})
         dish = Dish.objects.filter(name__icontains="rebai")
+
         self.assertEqual(
             list(response.context["dish_list"]),
             list(dish)

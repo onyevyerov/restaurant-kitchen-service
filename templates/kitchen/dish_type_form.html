@@ -10,6 +10,7 @@
           Create new dish type
       {% endif %}
     </h2>
+  
     <div class="card shadow-lg mx-auto" style="max-width: 700px;">
       <div class="card-body">
         <form method="post" action="">
@@ -18,13 +19,16 @@
               {{ error }}
           {% endif %}
           {{ form|crispy }}
+        
           <div class="text-center mt-3">
             <input type="submit" class="btn btn-success btn-lh" value="Submit">
             <input type="button" class="btn btn-secondary btn-lh" value="Cancel" onclick="window.history.back();">
           </div>
+        
         </form>
       </div>
     </div>
+  
   </div>
 
 {% endblock %}
