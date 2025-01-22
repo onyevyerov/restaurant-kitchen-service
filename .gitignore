@@ -1,6 +1,5 @@
 .idea
 .venv
 **__pycache__
-kitchen/migrations/
 db.sqlite3
 .env
