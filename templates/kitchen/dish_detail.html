@@ -33,15 +33,17 @@
 
       <span style="float: right;">
         {% if user in object.cooks.all %}
-          <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
+          <form method="post" action="{% url 'kitchen:dish-detail' dish.pk %}" style="display: inline;">
             {% csrf_token %}
+              <input type="hidden" name="action" value="remove">
               <button type="submit" class="btn btn-danger">
                 Remove me from {{ object.name }} cook list
               </button>
           </form>
         {% else %}
-          <form method="post" action="{% url 'kitchen:toggle-dish-assign' dish.pk %}" style="display: inline;">
+          <form method="post" action="{% url 'kitchen:dish-detail' dish.pk %}" style="display: inline;">
             {% csrf_token %}
+              <input type="hidden" name="action" value="assign_to_dish">
               <button type="submit" class="btn btn-success">
                 Add me to {{ object.name }} cook list
               </button>
