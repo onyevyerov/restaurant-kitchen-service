@@ -3,3 +3,4 @@
 **__pycache__
 kitchen/migrations/
 db.sqlite3
+.env
