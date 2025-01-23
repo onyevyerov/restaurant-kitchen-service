@@ -15,7 +15,7 @@ def validate_name(value):
 class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
-        fields = '__all__'
+        fields = "__all__"
         widgets = {
             "ingredients": forms.CheckboxSelectMultiple(),
             "cooks": forms.CheckboxSelectMultiple(),
@@ -35,12 +35,12 @@ class CookForm(UserCreationForm):
     first_name = forms.CharField(
         max_length=50,
         validators=[validate_name],
-        widget=forms.TextInput(attrs={"class": "form-control"})
+        widget=forms.TextInput(attrs={"class": "form-control"}),
     )
     last_name = forms.CharField(
         max_length=50,
         validators=[validate_name],
-        widget=forms.TextInput(attrs={"class": "form-control"})
+        widget=forms.TextInput(attrs={"class": "form-control"}),
     )
 
     def __init__(self, *args, **kwargs):

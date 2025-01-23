@@ -14,7 +14,7 @@ from kitchen.forms import (
     CookUsernameSearchForm,
     DishTypeNameSearchForm,
     IngredientForm,
-    IngredientNameSearchForm
+    IngredientNameSearchForm,
 )
 from kitchen.models import Dish, Cook, DishType, Ingredient
 
@@ -45,9 +45,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(DishListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = DishNameSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = DishNameSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
@@ -55,9 +53,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         form = DishNameSearchForm(self.request.GET)
 
         if form.is_valid():
-            queryset = queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            queryset = queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
 
 
@@ -102,9 +98,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(CookListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_form"] = CookUsernameSearchForm(
-            initial={"username": username}
-        )
+        context["search_form"] = CookUsernameSearchForm(initial={"username": username})
         return context
 
     def get_queryset(self):
@@ -150,18 +144,14 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(DishTypeListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = DishTypeNameSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = DishTypeNameSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
         form = DishTypeNameSearchForm(self.request.GET)
         if form.is_valid():
-            queryset = queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            queryset = queryset.filter(name__icontains=form.cleaned_data["name"])
             return queryset
 
 
@@ -215,18 +205,14 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         name = self.request.GET.get("name", "")
-        context["search_form"] = IngredientNameSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = IngredientNameSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
         form = IngredientNameSearchForm(self.request.GET)
         if form.is_valid():
-            queryset = queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            queryset = queryset.filter(name__icontains=form.cleaned_data["name"])
             return queryset
 
 

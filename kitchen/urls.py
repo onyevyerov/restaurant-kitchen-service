@@ -38,14 +38,40 @@ urlpatterns = [
     path("cooks/<int:pk>/update/", CookUpdateView.as_view(), name="cook-update"),
     path("dish-types/", DishTypeListView.as_view(), name="dish-type-list"),
     path("dish-types/create/", DishTypeCreateView.as_view(), name="dish-type-create"),
-    path("dish-types/<int:pk>/delete/", DishTypeDeleteView.as_view(), name="dish-type-delete"),
-    path("dish-types/<int:pk>/detail/", DishTypeDetailView.as_view(), name="dish-type-detail"),
-    path("dish-types/<int:pk>/update/", DishTypeUpdateView.as_view(), name="dish-type-update"),
-    path("ingredients/create/", IngredientCreateView.as_view(), name="ingredient-create"),
+    path(
+        "dish-types/<int:pk>/delete/",
+        DishTypeDeleteView.as_view(),
+        name="dish-type-delete",
+    ),
+    path(
+        "dish-types/<int:pk>/detail/",
+        DishTypeDetailView.as_view(),
+        name="dish-type-detail",
+    ),
+    path(
+        "dish-types/<int:pk>/update/",
+        DishTypeUpdateView.as_view(),
+        name="dish-type-update",
+    ),
+    path(
+        "ingredients/create/", IngredientCreateView.as_view(), name="ingredient-create"
+    ),
     path("ingredients/", IngredientListView.as_view(), name="ingredient-list"),
-    path("ingredients/<int:pk>/detail/", IngredientDetailView.as_view(), name="ingredient-detail"),
-    path("ingredients/<int:pk>/delete/", IngredientDeleteView.as_view(), name="ingredient-delete"),
-    path("ingredients/<int:pk>/update/", IngredientUpdateView.as_view(), name="ingredient-update"),
+    path(
+        "ingredients/<int:pk>/detail/",
+        IngredientDetailView.as_view(),
+        name="ingredient-detail",
+    ),
+    path(
+        "ingredients/<int:pk>/delete/",
+        IngredientDeleteView.as_view(),
+        name="ingredient-delete",
+    ),
+    path(
+        "ingredients/<int:pk>/update/",
+        IngredientUpdateView.as_view(),
+        name="ingredient-update",
+    ),
 ]
 
 app_name = "kitchen"

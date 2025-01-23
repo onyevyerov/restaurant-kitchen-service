@@ -5,10 +5,7 @@ from kitchen.models import DishType, Cook, Dish, Ingredient
 
 class ModelTests(TestCase):
     def setUp(self):
-        self.dish_type = DishType.objects.create(
-            name="Test",
-            country="TestCountry"
-        )
+        self.dish_type = DishType.objects.create(name="Test", country="TestCountry")
         self.dish = Dish.objects.create(
             name="Test",
             description="Test",
@@ -20,7 +17,7 @@ class ModelTests(TestCase):
             password="<PASSWORD>",
             first_name="TestFirstName",
             last_name="TestLastName",
-            years_of_experience=2
+            years_of_experience=2,
         )
         self.ingredient = Ingredient.objects.create(
             name="Ingredient",

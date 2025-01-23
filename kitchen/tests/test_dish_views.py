@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from kitchen.models import Dish, DishType
 
-DISH_LIST_URL = reverse('kitchen:dish-list')
+DISH_LIST_URL = reverse("kitchen:dish-list")
 
 
 class PublicDishTest(TestCase):
@@ -16,19 +16,13 @@ class PublicDishTest(TestCase):
 class PrivateDishTest(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            username='testuser',
-            password='<PASSWORD>',
+            username="testuser",
+            password="<PASSWORD>",
         )
         self.client.force_login(self.user)
 
-        self.dish_type1 = DishType.objects.create(
-            name="pizza",
-            country="Italy"
-        )
-        self.dish_type2 = DishType.objects.create(
-            name="stake",
-            country="USA"
-        )
+        self.dish_type1 = DishType.objects.create(name="pizza", country="Italy")
+        self.dish_type2 = DishType.objects.create(name="stake", country="USA")
         self.dish1 = Dish.objects.create(
             name="Margherita",
             price=10,
@@ -46,11 +40,8 @@ class PrivateDishTest(TestCase):
 
         dishes = Dish.objects.all()
 
-        self.assertEqual(
-            list(response.context["dish_list"]),
-            list(dishes)
-        )
-        self.assertTemplateUsed(response, 'kitchen/dish_list.html')
+        self.assertEqual(list(response.context["dish_list"]), list(dishes))
+        self.assertTemplateUsed(response, "kitchen/dish_list.html")
 
     def test_get_context_data(self):
         response = self.client.get(DISH_LIST_URL, {"name": "rebai"})
@@ -62,7 +53,4 @@ class PrivateDishTest(TestCase):
         response = self.client.get(DISH_LIST_URL, {"name": "rebai"})
         dish = Dish.objects.filter(name__icontains="rebai")
 
-        self.assertEqual(
-            list(response.context["dish_list"]),
-            list(dish)
-        )
+        self.assertEqual(list(response.context["dish_list"]), list(dish))

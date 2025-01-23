@@ -28,16 +28,16 @@ class CookAdmin(UserAdmin):
 
 @admin.register(Dish)
 class DishAdmin(admin.ModelAdmin):
-    search_fields = ("name", )
-    list_filter = ("dish_type", )
+    search_fields = ("name",)
+    list_filter = ("dish_type",)
 
 
 @admin.register(DishType)
 class DishTypeAdmin(admin.ModelAdmin):
-    search_fields = ("name", )
-    list_filter = ("country", )
+    search_fields = ("name",)
+    list_filter = ("country",)
 
 
 @admin.register(Ingredient)
 class IngredientAdmin(admin.ModelAdmin):
-    search_fields = ("name", )
+    search_fields = ("name",)

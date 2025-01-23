@@ -35,10 +35,10 @@ class Dish(models.Model):
         unique=True,
         validators=[
             RegexValidator(
-                regex=r'^[a-zA-Z\s\-]+$',
-                message="The name can only contain letters, spaces and dashes."
+                regex=r"^[a-zA-Z\s\-]+$",
+                message="The name can only contain letters, spaces and dashes.",
             )
-        ]
+        ],
     )
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)

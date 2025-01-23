@@ -9,8 +9,7 @@ class ValidateNameFuncTest(TestCase):
             validate_name("John123")
 
         self.assertEqual(
-            str(context.exception),
-            "['This field should only contain letters']"
+            str(context.exception), "['This field should only contain letters']"
         )
 
     def test_name_with_special_characters(self):
@@ -18,8 +17,7 @@ class ValidateNameFuncTest(TestCase):
             validate_name("John@@@")
 
         self.assertEqual(
-            str(context.exception),
-            "['This field should only contain letters']"
+            str(context.exception), "['This field should only contain letters']"
         )
 
     def test_name_with_one_letter(self):
@@ -27,8 +25,7 @@ class ValidateNameFuncTest(TestCase):
             validate_name("J")
 
         self.assertEqual(
-            str(context.exception),
-            "['This field should has 2 or more symbols ']"
+            str(context.exception), "['This field should has 2 or more symbols ']"
         )
 
     def test_name_with_empty_string(self):
@@ -36,8 +33,7 @@ class ValidateNameFuncTest(TestCase):
             validate_name("")
 
         self.assertEqual(
-            str(context.exception),
-            "['This field should only contain letters']"
+            str(context.exception), "['This field should only contain letters']"
         )
 
 
@@ -96,7 +92,7 @@ class DishFormTest(TestCase):
             "cooks": [self.cook.id],
             "price": "12",
             "ingredients": [self.ingredients1.id, self.ingredients2.id],
-            "dish_type": self.dish_type.id
+            "dish_type": self.dish_type.id,
         }
         form = DishForm(data=dish_form)
 
@@ -147,7 +143,9 @@ class DishFormTest(TestCase):
     def test_widgets(self):
         form = DishForm()
 
-        self.assertIsInstance(form.fields["ingredients"].widget, forms.CheckboxSelectMultiple)
+        self.assertIsInstance(
+            form.fields["ingredients"].widget, forms.CheckboxSelectMultiple
+        )
         self.assertIsInstance(form.fields["cooks"].widget, forms.CheckboxSelectMultiple)
 
 
