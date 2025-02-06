@@ -1,0 +1,587 @@
+[
+{
+    "model": "kitchen.dishtype",
+    "pk": 1,
+    "fields": {
+        "name": "Pizza",
+        "country": "Italy"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 2,
+    "fields": {
+        "name": "Sushi",
+        "country": "Japan"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 3,
+    "fields": {
+        "name": "Stake",
+        "country": "USA"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 4,
+    "fields": {
+        "name": "Ramen",
+        "country": "Japan"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 5,
+    "fields": {
+        "name": "Pad Thai",
+        "country": "Thailand"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 6,
+    "fields": {
+        "name": "Pierogi",
+        "country": "Poland"
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$nY6iDZdgNLnyqaemanejRj$+RYON+SgxG30Bbc/r3Eq/sb0kX4lTVvuLhSjUMUteSo=",
+        "last_login": "2025-02-06T16:40:13.778Z",
+        "is_superuser": true,
+        "username": "olezamolodec",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-06T15:55:47.884Z",
+        "years_of_experience": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$lJ23RG5VpUNvrxLYsV8BTG$bYRqQ8fvBXhmRtDHZXlIx/qk9Su0lPB+jHWW8Ww7Zk4=",
+        "last_login": "2025-02-06T16:38:24.078Z",
+        "is_superuser": false,
+        "username": "test_user",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-06T15:57:59.810Z",
+        "years_of_experience": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$vYbv5HJjubGcVssIm8aVit$SIRg7xS4zoiVJzGbiqkvWmAVTRheFKWo6yDWniy7uEo=",
+        "last_login": "2025-02-06T16:39:37.083Z",
+        "is_superuser": false,
+        "username": "vasyli_povar",
+        "first_name": "Vasyl",
+        "last_name": "Povarenko",
+        "email": "vasyl_pov@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-06T16:39:22.342Z",
+        "years_of_experience": 8,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$CBC8M3tMdBpR7d7SG3WG8l$57Dn4MtQ3dhnUyTk1tKT5xLvCzcKjZbzz4bLaI9mGnc=",
+        "last_login": "2025-02-06T16:42:12.278Z",
+        "is_superuser": false,
+        "username": "oleg_nyev",
+        "first_name": "Oleg",
+        "last_name": "Nyevyerov",
+        "email": "oleg_nyev@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-06T16:41:58.119Z",
+        "years_of_experience": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 1,
+    "fields": {
+        "name": "Classic Shrimp Pad Thai",
+        "description": "This is the traditional version of Pad Thai, featuring juicy shrimp, stir-fried rice noodles, and a sweet-savory tamarind sauce. It’s topped with crunchy peanuts and fresh lime for a perfect balance of flavors.",
+        "price": "14.99",
+        "dish_type": 5,
+        "cooks": [
+            3,
+            4
+        ],
+        "ingredients": [
+            10,
+            6,
+            4,
+            7,
+            9,
+            11,
+            5,
+            1,
+            2,
+            15,
+            3,
+            12
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 2,
+    "fields": {
+        "name": "Chicken Pad Thai",
+        "description": "A protein-packed version of Pad Thai, featuring tender chicken strips stir-fried with rice noodles, veggies, and a tangy tamarind sauce. It's a hearty and flavorful meal.",
+        "price": "13.99",
+        "dish_type": 5,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            8,
+            14,
+            13,
+            19,
+            10,
+            6,
+            7,
+            9,
+            11,
+            1,
+            15,
+            3,
+            12
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 3,
+    "fields": {
+        "name": "Vegan Pad Thai",
+        "description": "This plant-based version swaps out meat and fish sauce for tofu and soy sauce, making it a vegan-friendly delight while keeping the rich, umami flavors.",
+        "price": "13.99",
+        "dish_type": 5,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            8,
+            22,
+            13,
+            19,
+            10,
+            7,
+            9,
+            11,
+            21,
+            1,
+            15,
+            3,
+            20,
+            12
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 4,
+    "fields": {
+        "name": "Pad Thai with Beef",
+        "description": "This variation uses tender slices of marinated beef to add a rich and hearty flavor to the dish, perfect for meat lovers.",
+        "price": "15.99",
+        "dish_type": 5,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            8,
+            23,
+            18,
+            22,
+            13,
+            19,
+            10,
+            6,
+            4,
+            7,
+            9,
+            11,
+            1,
+            3,
+            12
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 5,
+    "fields": {
+        "name": "Traditional Potato and Cheese Pierogi",
+        "description": "This classic Polish pierogi is filled with a creamy mixture of mashed potatoes and farmer's cheese. It's comfort food at its finest, served with a dollop of sour cream or caramelized onions.",
+        "price": "12.99",
+        "dish_type": 6,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            27,
+            24,
+            26,
+            25
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 6,
+    "fields": {
+        "name": "Sweet Blueberry Pierogi",
+        "description": "A dessert version of pierogi, these are filled with fresh blueberries and lightly sweetened. They’re served with a drizzle of melted butter and a sprinkle of sugar for a delightful treat.",
+        "price": "11.99",
+        "dish_type": 6,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            30,
+            18,
+            27,
+            24
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 7,
+    "fields": {
+        "name": "Margherita Pizza",
+        "description": "The classic Neapolitan pizza, known for its simplicity and fresh flavors, Margherita pizza is topped with tomatoes, mozzarella, and fresh basil. Its colors represent the Italian flag—red, white, and green.",
+        "price": "11.00",
+        "dish_type": 1,
+        "cooks": [
+            3,
+            4
+        ],
+        "ingredients": [
+            24,
+            37,
+            36,
+            35,
+            28,
+            34
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 8,
+    "fields": {
+        "name": "Pepperoni Pizza",
+        "description": "A staple in American pizzerias, pepperoni pizza is loved for its crispy, spicy slices of pepperoni paired with a layer of gooey mozzarella cheese and tomato sauce",
+        "price": "14.00",
+        "dish_type": 1,
+        "cooks": [
+            3
+        ],
+        "ingredients": [
+            13,
+            24,
+            35,
+            40,
+            39
+        ]
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 1,
+    "fields": {
+        "name": "Rice noodles"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 2,
+    "fields": {
+        "name": "Shrimp"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 3,
+    "fields": {
+        "name": "Tamarind paste"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 4,
+    "fields": {
+        "name": "Fish sauce"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 5,
+    "fields": {
+        "name": "Palm sugar"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 6,
+    "fields": {
+        "name": "Eggs"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 7,
+    "fields": {
+        "name": "Garlic"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 8,
+    "fields": {
+        "name": "Bean sprouts"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 9,
+    "fields": {
+        "name": "Green onions"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 10,
+    "fields": {
+        "name": "Crushed peanuts"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 11,
+    "fields": {
+        "name": "Lime wedges"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 12,
+    "fields": {
+        "name": "Vegetable oil"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 13,
+    "fields": {
+        "name": "Chili flakes"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 14,
+    "fields": {
+        "name": "Chicken"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 15,
+    "fields": {
+        "name": "Soy sauce"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 18,
+    "fields": {
+        "name": "Brown sugar"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 19,
+    "fields": {
+        "name": "Chopped cilantro"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 20,
+    "fields": {
+        "name": "Tofu"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 21,
+    "fields": {
+        "name": "Maple syrup"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 22,
+    "fields": {
+        "name": "Carrots"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 23,
+    "fields": {
+        "name": "Beef"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 24,
+    "fields": {
+        "name": "Dough"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 25,
+    "fields": {
+        "name": "Potatoes"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 26,
+    "fields": {
+        "name": "Farmer’s cheese"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 27,
+    "fields": {
+        "name": "Butter"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 28,
+    "fields": {
+        "name": "Salt"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 29,
+    "fields": {
+        "name": "Pepper"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 30,
+    "fields": {
+        "name": "Blueberries"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 31,
+    "fields": {
+        "name": "Water"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 32,
+    "fields": {
+        "name": "Mushrooms"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 33,
+    "fields": {
+        "name": "Sauerkraut"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 34,
+    "fields": {
+        "name": "San marzano tomatoes"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 35,
+    "fields": {
+        "name": "Fresh mozzarella"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 36,
+    "fields": {
+        "name": "Fresh basil leaves"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 37,
+    "fields": {
+        "name": "Extra virgin olive oil"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 38,
+    "fields": {
+        "name": "Tomato sauce"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 39,
+    "fields": {
+        "name": "Pepperoni slices"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 40,
+    "fields": {
+        "name": "Oregano"
+    }
+}
+]
