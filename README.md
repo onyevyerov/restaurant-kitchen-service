@@ -41,6 +41,12 @@ To set up this project, you need to have Python3 already installed. Then, run th
 6. Run the Django development server:
    ```bash
    python manage.py runserver
+7. Sign in to test functionality.
+   ````
+   Login: test_user
+   
+   Password: Login_test123
+   ````
 
 ## Technologies Used
 - Django
@@ -50,10 +56,5 @@ To set up this project, you need to have Python3 already installed. Then, run th
 - Bootstrap 5
 
 ## Demo
-Sign in to test functionality.
-````
-Login: test_user
 
-Password: Login_test123
-````
 ![Project Demo](https://github.com/onyevyerov/restaurant-kitchen-service/blob/develop/images/demo.png?raw=true)
