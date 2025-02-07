@@ -5,6 +5,13 @@ A Django-based application that streamlines kitchen service management,
 allowing users to track dishes, dish types, cooks and ingredients.
 The system is designed to help kitchen services keep their work organized with features for managing dishes,
 assigning cooks, and logging information about dishes and dish types.
+
+## Check this out  [Kitchen Service](https://restaurant-kitchen-service-q6n3.onrender.com)
+   ````
+   Login: test_user
+   
+   Password: Login_test123
+   ````
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
@@ -41,12 +48,6 @@ To set up this project, you need to have Python3 already installed. Then, run th
 6. Run the Django development server:
    ```bash
    python manage.py runserver
-7. Sign in to test functionality.
-   ````
-   Login: test_user
-   
-   Password: Login_test123
-   ````
 
 ## Technologies Used
 - Django
