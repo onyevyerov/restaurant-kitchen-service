@@ -1,4 +1,4 @@
-from .base import *
+from kitchen_service.settings.base import *
 
 
 # SECURITY WARNING: don't run with debug turned on in production!

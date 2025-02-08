@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-from .base import *
+from kitchen_service.settings.base import *
 
 
 
